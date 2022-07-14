@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guess the number game</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/skeleton.css">
+  </head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="ten columns">
+                <h1>Number guessing game</h1>
+            </div>
+        </div>        
+        <div class="row">
+            <div class="ten columns">
+                <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if your guess was too high or too low.</p>
+            </div>
+        </div>        
+        <div class="row">
+            <div class="ten columns">
+                <div class="form">
+                    <label for="guessField">Enter a guess: </label>
+                    <input type="text" id="guessField" class="guessField">
+                    <input type="submit" id="guessSubmit" value="Submit guess" class="button-primary">
+                  </div>
+              
+                  <div id="resultParas">
+                    <p id="guesses"></p>
+                    <p id="lastResult"></p>
+                    <p id="lowOrHi"></p>
+                  </div>
+                </div>
+        </div>
+        <div class="row">
+            <div id="reset" class="ten columns">
+
+            </div>
+        </div>   
+
+    </div>
+    
+    
+    
+<script src="guess.js" defer></script>
+</body>
+</html>
