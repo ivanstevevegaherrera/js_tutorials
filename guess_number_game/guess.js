@@ -6,6 +6,12 @@ let randomNumber = Math.floor(Math.random() * 100) + 1;
 const guesses = document.querySelector('#guesses');
 const lastResult = document.querySelector('#lastResult');
 const lowOrHi = document.querySelector('#lowOrHi');
+const lowOrHiImg = document.querySelector('#lowOrHiImg');
+
+const success = "images/success.gif";
+const error = "images/error.gif";
+const tooHigh = "images/high.gif";
+const tooLow = "images/low.gif";
 
 const guessSubmit = document.querySelector('#guessSubmit');
 const guessField = document.querySelector('#guessField');
@@ -30,11 +36,13 @@ function checkGuess() {
       lastResult.textContent = 'Congratulations! You got it right!';
       lastResult.style.backgroundColor = 'green';
       lowOrHi.textContent = '';
+      lowOrHiImg.src = success;
       setGameOver();
     } else if (guessCount === 10) {
         // guess count exceeded the limit
       lastResult.textContent = '!!!GAME OVER!!!';
       lowOrHi.textContent = '';
+      lowOrHiImg.src = error;
       // game's over
       setGameOver();
     } else {
@@ -45,8 +53,10 @@ function checkGuess() {
       // check if guess is lower or higher
       if(userGuess < randomNumber) {
         lowOrHi.textContent = 'Last guess was too low!';
+        lowOrHiImg.src = tooLow;
       } else if(userGuess > randomNumber) {
         lowOrHi.textContent = 'Last guess was too high!';
+        lowOrHiImg.src = tooHigh;
       }
     }
   
@@ -83,6 +93,7 @@ function checkGuess() {
     guessSubmit.disabled = false;
     guessField.value = '';
     guessField.focus();
+    lowOrHiImg.src = '';
   
     lastResult.style.backgroundColor = 'white';
   
